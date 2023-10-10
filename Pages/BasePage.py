@@ -21,10 +21,17 @@ class BasePage:
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         return bool(element)
 
-    def get_title(self,title):
-        WebDriverWait(self.driver,10).until(EC.title_is(title))
+    def get_title(self, title):
+        WebDriverWait(self.driver, 10).until(EC.title_is(title))
         return self.driver.title
 
-    def j_click(self,locator):
+    def j_click(self, locator):
         element = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located(locator))
         self.driver.execute_script("arguments[0].click();", element)
+
+    def i_frame(self, locator):
+        element = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located(locator))
+        self.driver.switch_to.frame(element)
+
+    def switch_to_default(self):
+        self.driver.switch_to.default_content()

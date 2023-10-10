@@ -21,7 +21,13 @@ class Test_Login(BaseTest):
     def tests(self):
         self.loginPage = LoginPage(self.driver)
         self.loginPage.close_login()
-        time.sleep(5)
-        self.loginPage.choose_roundTrip()
+        # time.sleep(15)
+        # self.loginPage.choose_roundTrip()
         self.loginPage.close_popup()
+        # try:
+        #     self.loginPage.close_popup()
+        # except Exception as e:
+        #     print(f"an error had occured:: {str(e)}")
+
+        time.sleep(25)
 

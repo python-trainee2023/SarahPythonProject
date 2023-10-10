@@ -12,8 +12,8 @@ class LoginPage(BasePage):
     CONTINUE_BUTTON = (By.XPATH, "button[@data-cy='continueBtn']")
     PASSWORD = (By.NAME, "password")
     LOGIN_BUTTON = (By.XPATH, "button[@data-cy='login']")
-    # POPUP_BUTTON=(By.ID,"webklipper-publisher-widget-container-notification-close-div")
-    POPUP_BUTTON = (By.CLASS_NAME, "close")
+    POPUP_BUTTON=(By.ID,"webklipper-publisher-widget-container-notification-close-div")
+    IFRAME=(By.ID,"webklipper-publisher-widget-container-notification-frame")
     CLOSE_LOGIN = (By.CLASS_NAME, "commonModal__close")
     ROUND_TRIP = (By.XPATH, "li[@data-cy='roundTrip']")
     LOGIN_BOX = (By.XPATH, "section[@data-cy='CommonModal_2']")
@@ -29,8 +29,10 @@ class LoginPage(BasePage):
         self.j_click(self.CLOSE_LOGIN)
 
     def close_popup(self):
-        time.sleep(15)
+        self.i_frame(self.IFRAME)
         self.j_click(self.POPUP_BUTTON)
+        self.switch_to_default()
+
 
     # def is_enabled(self):
     #     return self.is_visible(self.LOGIN_BOX)
