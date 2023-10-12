@@ -9,15 +9,14 @@ class Test_Home(BaseTest):
         self.page = HomePage(self.driver)
         self.page.close_login()
         self.page.close_popup()
-        # time.sleep(5)
         self.page.switch()
 
-        self.page.click_search()
+        self.page.flights()
         time.sleep(5)
         self.page.popup_close()
-        time.sleep(20)
-        self.page.booking()
-        time.sleep(30)
+
+        self.page.trains()
+        # time.sleep(0)
 
         self.page.teardown()
 
